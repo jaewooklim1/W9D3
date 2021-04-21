@@ -4,11 +4,35 @@ class View {
     this.$el = $el;
 
     this.setupBoard();
+    this.bindEvents();
   }
 
-  bindEvents() {}
+  bindEvents() {
 
-  makeMove($square) {}
+    const changeLi = e => {
+      const $li = $(e.target);
+      $li.addClass("played");
+    };
+
+    $('ul').on('click', 'li', changeLi);
+
+
+
+    // this.makeMove($square)
+
+    // when user clicks on a call (ul)
+    // call Game.prototype.playMove to make their move
+    // edit cell <li> to show players mark (toggleclass)
+    // css change background to white and disp X or O
+    // **put some of these in makeMove
+  }
+
+  makeMove($square) {
+
+
+    // toggleclass of ul / li in here
+    // 
+  }
 
   setupBoard() {
 
@@ -21,7 +45,7 @@ class View {
         $ul.append($li);
       }
     }
-    // this.$el.append($ul);
+    this.$el.append($ul);
   }
 
 

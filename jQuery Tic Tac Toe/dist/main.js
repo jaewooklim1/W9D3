@@ -45,7 +45,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");\r\nconst Game = __webpack_require__(/*! ../Tic Tac Toe Code/game.js */ \"./Tic Tac Toe Code/game.js\");\r\nwindow.Game = Game;\r\nwindow.View = View;\r\n\r\n  $(() => {\r\n    var $game = $('.ttt');\r\n    var ticTacToe = new Game();\r\n\r\n    new View($game, ticTacToe);\r\n    \r\n    \r\n  });\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../Tic Tac Toe Code/game */ \"./Tic Tac Toe Code/game.js\");\nwindow.Game = Game;\nwindow.View = View;\n\n  $(() => {\n    var $game = $('.ttt');\n    var ticTacToe = new Game();\n\n    new View(ticTacToe, $game);\n    \n    \n  });\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\r\n  constructor(game, $el) {\r\n    this.game = game;\r\n    this.$el = $el;\r\n\r\n    this.setupBoard();\r\n  }\r\n\r\n  bindEvents() {}\r\n\r\n  makeMove($square) {}\r\n\r\n  setupBoard() {\r\n\r\n    const $ul = $(\"<ul>\");\r\n    \r\n    for (let row = 0; row < 3; row++) {\r\n      for (let col = 0; col < 3; col++) {\r\n        const $li = $(\"<li>\");\r\n        $li.data(\"pos\", [row, col]); \r\n        $ul.append($li);\r\n      }\r\n    }\r\n    // this.$el.append($ul);\r\n  }\r\n\r\n\r\n}\r\n\r\nmodule.exports = View;\r\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n  bindEvents() {\n\n    const changeLi = e => {\n      const $li = $(e.target);\n      $li.addClass(\"played\");\n    };\n\n    $('ul').on('click', 'li', changeLi);\n\n\n\n    // this.makeMove($square)\n\n    // when user clicks on a call (ul)\n    // call Game.prototype.playMove to make their move\n    // edit cell <li> to show players mark (toggleclass)\n    // css change background to white and disp X or O\n    // **put some of these in makeMove\n  }\n\n  makeMove($square) {\n\n\n    // toggleclass of ul / li in here\n    // \n  }\n\n  setupBoard() {\n\n    const $ul = $(\"<ul>\");\n    \n    for (let row = 0; row < 3; row++) {\n      for (let col = 0; col < 3; col++) {\n        const $li = $(\"<li>\");\n        $li.data(\"pos\", [row, col]); \n        $ul.append($li);\n      }\n    }\n    this.$el.append($ul);\n  }\n\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
