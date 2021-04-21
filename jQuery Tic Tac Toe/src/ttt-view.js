@@ -25,16 +25,25 @@ class View {
   makeMove($square) {
     
     const player = this.game.currentPlayer;
-    debugger
     $square.addClass(player)
-    debugger
     // this.$el.addClass(player)
 
 
     if (this.game.isOver()) {
       
+      const winner = this.game.winner();
+
       this.$el.addClass("Game-Over");
-      if (this.game.winner()) {
+      if (winner) {
+        if (winner === "x") {
+          const $xEle = $(".o");
+          $xEle.attr("id", "winner")
+        }
+        if (winner === "o") {
+          const $xEle = $(".x");
+          $xEle.attr("id", "value")
+        }
+        // $square.addClass(`Game-winner-${winner}`)
         this.$el.append("<p>Winner!</p>");
         // return;
       } else {
