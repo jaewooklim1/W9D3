@@ -31,17 +31,25 @@ h1 {
 }
 
 .x, .o {
-    background: blue;
+    /* background: blue; */
 }
 
 .x:hover, .o:hover {
-    background: red;
+    /* background: red; */
 }
 
 .x:after {
    content: "x"; 
+   display: block;
+   font-size: 30px;
+   padding-left: 45px;
+   padding-top: 30px;
 }
  
 .o:after {
     content: "o";
+    display: block;
+    font-size: 30px;
+    padding-left: 45px;
+    padding-top: 30px;
 }

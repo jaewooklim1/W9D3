@@ -32,14 +32,20 @@ class View {
 
 
     if (this.game.isOver()) {
+      
       this.$el.addClass("Game-Over");
-
       if (this.game.winner()) {
         this.$el.append("<p>Winner!</p>");
+        // return;
       } else {
         this.$el.append("<p>Game is a draw!</p>");
+        // return;
         };
+
+      // this.$el.stop(stopAll, goToEnd);
     }
+
+
 
 
     // toggleclass of ul / li in here
