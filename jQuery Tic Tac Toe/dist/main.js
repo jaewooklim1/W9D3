@@ -45,7 +45,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../Tic Tac Toe Code/game */ \"./Tic Tac Toe Code/game.js\");\n\n  $(() => {\n    var $game = $('.ttt');\n\n    new View($game);\n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../Tic Tac Toe Code/game */ \"./Tic Tac Toe Code/game.js\");\n\n  $(() => {\n    var $game = $('.ttt');\n    var ticTacToe = new Game();\n\n    var v = new View($game, ticTacToe);\n    v.setupBoard();\n    \n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -55,7 +55,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\");
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {}\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.$el = $el;\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    const $ul = $(\"<ul>\");\n    for (let row = 0; row < 3; row++) {\n      for (let col = 0; col < 3; col++) {\n        const $li = $(\"<li>\");\n        $li.data(\"pos\", [row, col]); \n        $ul.append($li);\n      }\n    }\n  }\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 

@@ -3,6 +3,9 @@ const Game = require('../Tic Tac Toe Code/game');
 
   $(() => {
     var $game = $('.ttt');
+    var ticTacToe = new Game();
 
-    new View($game);
+    var v = new View($game, ticTacToe);
+    v.setupBoard();
+    
   });
