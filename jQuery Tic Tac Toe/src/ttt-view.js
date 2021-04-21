@@ -2,6 +2,8 @@ class View {
   constructor(game, $el) {
     this.game = game;
     this.$el = $el;
+
+    this.setupBoard();
   }
 
   bindEvents() {}
@@ -9,7 +11,9 @@ class View {
   makeMove($square) {}
 
   setupBoard() {
+
     const $ul = $("<ul>");
+    
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
         const $li = $("<li>");
@@ -17,7 +21,9 @@ class View {
         $ul.append($li);
       }
     }
+    // this.$el.append($ul);
   }
+
 
 }
 

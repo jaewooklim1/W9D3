@@ -1,11 +1,13 @@
-const View = require('./ttt-view');
-const Game = require('../Tic Tac Toe Code/game');
+const View = require('./ttt-view.js');
+const Game = require('../Tic Tac Toe Code/game.js');
+window.Game = Game;
+window.View = View;
 
   $(() => {
     var $game = $('.ttt');
     var ticTacToe = new Game();
 
-    var v = new View($game, ticTacToe);
-    v.setupBoard();
+    new View($game, ticTacToe);
+    
     
   });
