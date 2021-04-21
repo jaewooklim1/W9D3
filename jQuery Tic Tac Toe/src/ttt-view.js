@@ -13,33 +13,32 @@ class View {
       const $li = $(e.target);
       const position = $li.data("pos");
       this.game.playMove(position);
-      debugger
+      this.makeMove($li)
       $li.addClass("played");
 
     };
 
     $('ul').on('click', 'li', changeLi);
 
-   
-    // this.makeMove($square)
-
-    // when user clicks on a call (ul)
-    // call Game.prototype.playMove to make their move
-    // edit cell <li> to show players mark (toggleclass)
-    // css change background to white and disp X or O
-    // **put some of these in makeMove
   }
 
   makeMove($square) {
+    
+    const player = this.game.currentPlayer;
+    debugger
+    $square.addClass(player)
+    debugger
+    // this.$el.addClass(player)
+
 
     if (this.game.isOver()) {
       this.$el.addClass("Game-Over");
 
       if (this.game.winner()) {
-        const $p = $("<p>");
-        $p.append("<p>");
-        $
-      }
+        this.$el.append("<p>Winner!</p>");
+      } else {
+        this.$el.append("<p>Game is a draw!</p>");
+        };
     }
 
 
