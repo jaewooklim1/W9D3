@@ -32,6 +32,16 @@ class View {
 
   makeMove($square) {
 
+    if (this.game.isOver()) {
+      this.$el.addClass("Game-Over");
+
+      if (this.game.winner()) {
+        const $p = $("<p>");
+        $p.append("<p>");
+        $
+      }
+    }
+
 
     // toggleclass of ul / li in here
     // 
