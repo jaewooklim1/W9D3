@@ -11,13 +11,16 @@ class View {
 
     const changeLi = e => {
       const $li = $(e.target);
+      const position = $li.data("pos");
+      this.game.playMove(position);
+      debugger
       $li.addClass("played");
+
     };
 
     $('ul').on('click', 'li', changeLi);
 
-
-
+   
     // this.makeMove($square)
 
     // when user clicks on a call (ul)
